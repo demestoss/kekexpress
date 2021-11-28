@@ -1,6 +1,6 @@
 {
   "name": "kekexpress",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Naive express-like library to create http server application.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/popovdmitriiy/kexpress.git"
+    "url": "git+https://github.com/popovdmitriiy/kekexpress.git"
   },
   "keywords": [
     "node.js",
@@ -19,14 +19,15 @@
     "express",
     "server",
     "http-server",
-    "kexpress"
+    "kexpress",
+    "kekexpress"
   ],
   "author": "Popov Dmitriy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/popovdmitriiy/kexpress/issues"
+    "url": "https://github.com/popovdmitriiy/kekexpress/issues"
   },
-  "homepage": "https://github.com/popovdmitriiy/kexpress#readme",
+  "homepage": "https://github.com/popovdmitriiy/kekexpress#readme",
   "devDependencies": {
     "eslint": "^8.3.0",
     "eslint-config-airbnb-base": "^15.0.0",

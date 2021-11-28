@@ -133,3 +133,9 @@ app.error(req, res, error) => {
 - `use(router)` - adds nested router into current router;
 - `|get, post, put, patch, delete|(url, ...handlers)` - adds handlers by url and selected method;
 - `middleware(...handlers)` - adds middleware to all routes inside router.
+
+## Release History
+
+* 0.1.2 - Package renaming 
+* 0.1.1 - Added example of usage
+* 0.1.0 - Initial release, working functionality
