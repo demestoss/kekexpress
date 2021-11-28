@@ -103,19 +103,33 @@ app.error(req, res, error) => {
 ## API
 
 ### Request
-- `url` - request url
-- `method` - request method
-- `params` - parsed params from route url (**/{name}** - **name** is a parameter)
-- `query` - parsed query params from route url (**/user?id=2&test=3** - **id** and **test** are query params)
-- `body` - parsed JSON body. Server accepts **only JSON** format
-- `httpRequest` - base request object from node.js **http** module
+- `url` - request url;
+- `method` - request method;
+- `params` - parsed params from route url (**/{name}** - **name** is a parameter);
+- `query` - parsed query params from route url (**/user?id=2&test=3** - **id** and **test** are query params);
+- `body` - parsed JSON body. Server accepts **only JSON** format;
+- `httpRequest` - base request object from node.js **http** module.
 
 ### Response
-- `status(statusCode)` - sets response status code
-- `send(message)` - sends respose with some text back to user
-- `json(data)`  - sends respose with data in JSON format
-- `html(htmlData)` - sends respose with html
-- `setHeader(headerKey, headerValue)` - sets header to reponse
-- `isFinished` - check if response was already sended. Not needed to trigger by you, but maybe there will be some edge cases.
+- `status(statusCode)` - sets response status code;
+- `send(message)` - sends respose with some text back to user;
+- `json(data)`  - sends respose with data in JSON format;
+- `html(htmlData)` - sends respose with html;
+- `setHeader(headerKey, headerValue)` - sets header to reponse;
+- `isFinished` - check if response was already sended. Not needed to trigger by you, but maybe there will be some edge cases;
 - `httpResponse` - base response object from node.js **http** module.
 
+### Server
+- `httpServer` - base server object from node.js **http** module;
+- `listen(port, callback)` - starts server on port;
+- `close(callback)` - stops server;
+- `|get, post, put, patch, delete|(url, ...handlers)` - adds handlers by url and selected method;
+- `notFound(callback)` - runs callback when route is not found;
+- `error(callback)` - runs callback when error was thrown inside route handler;
+- `middleware(...handlers)` - adds middleware to the server.
+
+### Router
+- `constructor(prefix)` - creates router with prefix;
+- `use(router)` - adds nested router into current router;
+- `|get, post, put, patch, delete|(url, ...handlers)` - adds handlers by url and selected method;
+- `middleware(...handlers)` - adds middleware to all routes inside router.

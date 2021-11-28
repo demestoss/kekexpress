@@ -9,6 +9,7 @@ const ResponseWrapper = require("../Response/ResponseWrapper");
 const { HOST } = require("../config");
 
 class Server {
+  #server;
   #routerList = new RouterList();
   #defaultRouter = new Router("");
   #middlewares = new Middleware();
@@ -16,15 +17,19 @@ class Server {
   #errorCallback = null;
 
   constructor() {
-    this.server = http.createServer(this.#requestLoop.bind(this));
+    this.#server = http.createServer(this.#requestLoop.bind(this));
+  }
+
+  get httpServer() {
+    return this.#server;
   }
 
   listen(port, callback) {
-    this.server.listen(port, HOST, callback);
+    this.#server.listen(port, HOST, callback);
   }
 
   close(callback) {
-    this.server.close(callback);
+    this.#server.close(callback);
   }
 
   middleware(...args) {
