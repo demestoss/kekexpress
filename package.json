@@ -2,9 +2,10 @@
   "name": "kexpress",
   "version": "0.1.0",
   "description": "Naive express-like library to create http server application.",
-  "main": "dist/bundle.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "scripts": {
-    "build": "webpack",
+    "build": "rollup -c",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "prepare": "npm run build"
   },
@@ -27,7 +28,8 @@
   },
   "homepage": "https://github.com/popovdmitriiy/kexpress#readme",
   "devDependencies": {
-    "webpack": "^5.64.4",
-    "webpack-cli": "^4.9.1"
+    "rollup": "^2.60.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-delete": "^2.0.0"
   }
 }
