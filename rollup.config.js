@@ -1,6 +1,6 @@
 import commonjs from "rollup-plugin-commonjs";
 import del from "rollup-plugin-delete";
-
+import { terser } from "rollup-plugin-terser";
 import pkg from "./package.json";
 
 export default [
@@ -19,6 +19,7 @@ export default [
       },
     ],
     plugins: [
+      terser(),
       commonjs(),
       del({ targets: "dist/*" }),
     ],
