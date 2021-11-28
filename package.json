@@ -1,0 +1,33 @@
+{
+  "name": "kexpress",
+  "version": "0.1.0",
+  "description": "Naive express-like library to create http server application.",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "build": "webpack",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/popovdmitriiy/kexpress.git"
+  },
+  "keywords": [
+    "node.js",
+    "node",
+    "express",
+    "server",
+    "http-server",
+    "kexpress"
+  ],
+  "author": "Popov Dmitriy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/popovdmitriiy/kexpress/issues"
+  },
+  "homepage": "https://github.com/popovdmitriiy/kexpress#readme",
+  "devDependencies": {
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1"
+  }
+}
