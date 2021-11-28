@@ -69,7 +69,7 @@ app.listen(3000, () => {
 ...
 // You can specify route params using {name} syntax
 router.get("/{id}", (req, res) => {
-	const { id } = req.params;
+  const { id } = req.params;
   res.status(200).json({ message: "Hello world " + id })
 });
 ...
@@ -81,9 +81,9 @@ router.get("/{id}", (req, res) => {
 // You can throw error here and then handle it inside
 // global app 'error' handler
 const validateParam = (req, res) => {
-	if (!req.params.id) {
-			throw new ValidationError('Id is not specifiend')
-	}
+  if (!req.params.id) {
+    throw new ValidationError('Id is not specifiend')
+  }
 }
 const validateBody = ...;
 
@@ -92,11 +92,11 @@ const validateBody = ...;
 router.get('/', validateParam, validateBody, handler);
 ...
 app.error(req, res, error) => {
-	if (error instanceof ValidationError) {
-		res.status(400).json({ message: error.message });
-	} else {
-	  res.status(500).json({ message: error.message });
-	}
+  if (error instanceof ValidationError) {
+    res.status(400).json({ message: error.message });
+  } else {
+    res.status(500).json({ message: error.message });
+  }
 });
 ```
 
