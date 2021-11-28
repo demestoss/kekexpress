@@ -1,5 +1,5 @@
 {
-  "name": "kexpress",
+  "name": "kekexpress",
   "version": "0.1.0",
   "description": "Naive express-like library to create http server application.",
   "main": "dist/index.cjs.js",
