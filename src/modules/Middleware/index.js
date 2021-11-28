@@ -16,11 +16,11 @@ class Middleware {
     this.#middlewares.push(...args);
   }
 
-  execute(request, response) {
-    this.#middlewares.forEach((callback) => {
+  async execute(request, response) {
+    for (const callback of this.#middlewares) {
       if (response.isFinished()) return;
-      callback(request, response);
-    });
+      await callback(request, response);
+    }
   }
 
   glue(other) {

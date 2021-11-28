@@ -19,11 +19,11 @@ class Route {
     return fullUrl.haveTheSameParts(request.url);
   }
 
-  executeRouteCallbacks(request, response) {
-    this.#callbacks.forEach((callback) => {
+  async executeRouteCallbacks(request, response) {
+    for (const callback of this.#callbacks) {
       if (response.isFinished()) return;
-      callback(request, response);
-    });
+      await callback(request, response);
+    }
   }
 
   get url() {

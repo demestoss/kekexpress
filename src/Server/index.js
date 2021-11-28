@@ -105,9 +105,9 @@ class Server {
       await request.parseBody();
       request.parseParams(fullUrl);
 
-      this.#middlewares.execute(wrappedRequest, wrappedResponse);
-      middlewares.execute(wrappedRequest, wrappedResponse);
-      route.executeRouteCallbacks(wrappedRequest, wrappedResponse);
+      await this.#middlewares.execute(wrappedRequest, wrappedResponse);
+      await middlewares.execute(wrappedRequest, wrappedResponse);
+      await route.executeRouteCallbacks(wrappedRequest, wrappedResponse);
     } catch (e) {
       this.#applicationError(wrappedRequest, wrappedResponse, e);
     }
