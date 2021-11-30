@@ -1,5 +1,3 @@
-const Router = require("../Router");
-
 class RouterList {
   #routers = [];
 
@@ -8,12 +6,6 @@ class RouterList {
   }
 
   push(router) {
-    if (!(router instanceof Router)) {
-      throw new Error(
-        "Router has invalid type. It should be Router class type"
-      );
-    }
-
     this.#routers.push(router);
   }
 
