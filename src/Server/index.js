@@ -6,7 +6,6 @@ const RouterList = require("../modules/Router/RouterList");
 const Middleware = require("../modules/Middleware");
 const RequestWrapper = require("../Request/RequestWrapper");
 const ResponseWrapper = require("../Response/ResponseWrapper");
-const { HOST } = require("../config");
 
 class Server {
   #server;
@@ -25,7 +24,7 @@ class Server {
   }
 
   listen(port, callback) {
-    this.#server.listen(port, HOST, callback);
+    this.#server.listen(port, callback);
   }
 
   close(callback) {

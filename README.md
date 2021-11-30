@@ -3,6 +3,11 @@
 Naive express-like library to create http server application.
 Uses json parser by default.
 
+### Installation
+```
+npm i kekexpress
+```
+
 ##  Simple Usage Example
 ```JS
 const { Server } = require("kexpress");
@@ -11,8 +16,11 @@ const { Server } = require("kexpress");
 const app = new Server();
 
 // Applying global middlewares for application
-app.middleware((req, res) => {
+app.middleware((req, res, next) => {
   console.log(req, res);
+  
+  // You can call next just like in express library
+  next();
 });
 
 // Applying spesific hanler for url path
@@ -80,7 +88,7 @@ router.get("/{id}", (req, res) => {
 ...
 // You can throw error here and then handle it inside
 // global app 'error' handler
-const validateParam = (req, res) => {
+const validateParam = (req, res, next) => {
   if (!req.params.id) {
     throw new ValidationError('Id is not specifiend')
   }
@@ -136,6 +144,7 @@ app.error(req, res, error) => {
 
 ## Release History
 
+* 0.2.0 - Added support of next() inside route handlers
 * 0.1.2 - Package renaming 
 * 0.1.1 - Added example of usage
 * 0.1.0 - Initial release, working functionality

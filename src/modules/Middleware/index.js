@@ -1,3 +1,5 @@
+const { NextFunctionCommand } = require("../utils");
+
 class Middleware {
   #middlewares = [];
 
@@ -17,9 +19,20 @@ class Middleware {
   }
 
   async execute(request, response) {
+    const next = () => {
+      throw new NextFunctionCommand();
+    };
+
     for (const callback of this.#middlewares) {
       if (response.isFinished()) return;
-      await callback(request, response);
+      try {
+        await callback(request, response, next);
+      } catch (e) {
+        if (!(e instanceof NextFunctionCommand)) {
+          // if next() callback executed, we go to the next callback
+          throw e;
+        }
+      }
     }
   }
 
